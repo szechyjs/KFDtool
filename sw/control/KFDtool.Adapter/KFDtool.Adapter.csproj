@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <OutputType>Library</OutputType>
@@ -19,37 +19,17 @@
     <Reference Include="System.Transactions" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Device\AutoDetection.cs" />
-    <Compile Include="Device\ManualDetection.cs" />
-    <Compile Include="Device\FirmwareUpdate.cs" />
-    <Compile Include="Bundle\Model.cs" />
-    <Compile Include="Bundle\Firmware.cs" />
-    <Compile Include="Bundle\Update.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Protocol\Adapter\AdapterProtocol.cs" />
-    <Compile Include="Protocol\Serial\SerialProtocol.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\KFDtool.BSL430\KFDtool.BSL430.csproj" />
     <ProjectReference Include="..\KFDtool.Shared\KFDtool.Shared.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+    <PackageReference Include="System.IO.Ports" Version="5.0.1" />
     <PackageReference Include="System.Management" Version="5.0.0" />
+    <PackageReference Include="System.Security.Cryptography.Xml" Version="5.0.0" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="NLog" Version="4.7.3" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Remove="Bundle/Firmware.cs" />
-    <Compile Remove="Bundle/Model.cs" />
-    <Compile Remove="Bundle/Update.cs" />
-    <Compile Remove="Device/AutoDetection.cs" />
-    <Compile Remove="Device/FirmwareUpdate.cs" />
-    <Compile Remove="Device/ManualDetection.cs" />
-    <Compile Remove="Properties/AssemblyInfo.cs" />
-    <Compile Remove="Protocol/Adapter/AdapterProtocol.cs" />
-    <Compile Remove="Protocol/Serial/SerialProtocol.cs" />
   </ItemGroup>
 </Project>
