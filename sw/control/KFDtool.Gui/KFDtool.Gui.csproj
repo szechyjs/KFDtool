@@ -1,19 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{48279C87-1ABF-4427-9735-9CF2DA4AFAC4}</ProjectGuid>
+    <TargetFramework>net5.0-windows</TargetFramework>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>KFDtool.Gui</RootNamespace>
     <AssemblyName>KFDtoolGui</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <WarningLevel>4</WarningLevel>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <Deterministic>true</Deterministic>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWPF>true</UseWPF>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>KFDtool.ico</ApplicationIcon>
@@ -22,254 +14,80 @@
     <StartupObject />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>false</Prefer32Bit>
-    <DebugType>pdbonly</DebugType>
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
-      <HintPath>..\packages\NLog.4.7.3\lib\net45\NLog.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
     <Reference Include="System.Configuration" />
-    <Reference Include="System.Data" />
     <Reference Include="System.IO.Compression" />
-    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Transactions" />
-    <Reference Include="System.Xml" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xaml">
-      <RequiredTargetFramework>4.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="WindowsBase" />
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
-    <Compile Include="Control\P25EraseAllKeys.xaml.cs">
-      <DependentUpon>P25EraseAllKeys.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Control\P25KeyErase.xaml.cs">
-      <DependentUpon>P25KeyErase.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Control\P25MrEmulator.xaml.cs">
-      <DependentUpon>P25MrEmulator.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Control\P25MultipleKeyload.xaml.cs">
-      <DependentUpon>P25MultipleKeyload.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Control\P25ViewKeyInfo.xaml.cs">
-      <DependentUpon>P25ViewKeyInfo.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Control\P25ViewKeysetInfo.xaml.cs">
-      <DependentUpon>P25ViewKeysetInfo.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Control\P25ViewKmfConfig.xaml.cs">
-      <DependentUpon>P25ViewKmfConfig.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Control\P25ViewRsiConfig.xaml.cs">
-      <DependentUpon>P25ViewRsiConfig.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Control\UtilAdapterSelfTest.xaml.cs">
-      <DependentUpon>UtilAdapterSelfTest.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Control\UtilFixDesKeyParity.xaml.cs">
-      <DependentUpon>UtilFixDesKeyParity.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Control\UtilInitAdapter.xaml.cs">
-      <DependentUpon>UtilInitAdapter.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Control\UtilUpdateAdapterFw.xaml.cs">
-      <DependentUpon>UtilUpdateAdapterFw.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Dialog\ContainerEdit.xaml.cs">
-      <DependentUpon>ContainerEdit.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Dialog\ContainerEditGroupControl.xaml.cs">
-      <DependentUpon>ContainerEditGroupControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Dialog\ContainerEditKeyControl.xaml.cs">
-      <DependentUpon>ContainerEditKeyControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Dialog\ContainerEnterPassword.xaml.cs">
-      <DependentUpon>ContainerEnterPassword.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Dialog\ContainerSetPassword.xaml.cs">
-      <DependentUpon>ContainerSetPassword.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Dialog\DliIpDeviceEdit.xaml.cs">
-      <DependentUpon>DliIpDeviceEdit.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Settings.cs" />
-    <Compile Include="Converters.cs" />
-    <Page Include="Control\P25EraseAllKeys.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Control\P25KeyErase.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Control\P25MrEmulator.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Control\P25MultipleKeyload.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Control\P25ViewKeyInfo.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Control\P25Keyload.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Control\P25ViewKeysetInfo.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Control\P25ViewKmfConfig.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Control\P25ViewRsiConfig.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Control\UtilAdapterSelfTest.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Control\UtilFixDesKeyParity.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Control\UtilInitAdapter.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Control\UtilUpdateAdapterFw.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Dialog\ContainerEdit.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Dialog\ContainerEditGroupControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Dialog\ContainerEditKeyControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Dialog\ContainerEnterPassword.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Dialog\ContainerSetPassword.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Dialog\DliIpDeviceEdit.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Control\P25Keyload.xaml.cs">
-      <DependentUpon>P25Keyload.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <Content Include="NLog.config">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="packages.config" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="KFDtool.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\KFDtool.Adapter\KFDtool.Adapter.csproj">
-      <Project>{a13f6741-6c04-4c9f-affc-a0b7e0d25762}</Project>
-      <Name>KFDtool.Adapter</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\KFDtool.Container\KFDtool.Container.csproj">
-      <Project>{4e99ec83-6ee7-49e0-a9af-6674a53f578c}</Project>
-      <Name>KFDtool.Container</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\KFDtool.P25\KFDtool.P25.csproj">
-      <Project>{824aca5b-01db-42b7-892f-e4cec6ff3887}</Project>
-      <Name>KFDtool.P25</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\KFDtool.Shared\KFDtool.Shared.csproj">
-      <Project>{D6E45B54-C02B-4B24-BA1D-D06838071A81}</Project>
-      <Name>KFDtool.Shared</Name>
-    </ProjectReference>
+    <ProjectReference Include="..\KFDtool.Adapter\KFDtool.Adapter.csproj" />
+    <ProjectReference Include="..\KFDtool.Container\KFDtool.Container.csproj" />
+    <ProjectReference Include="..\KFDtool.P25\KFDtool.P25.csproj" />
+    <ProjectReference Include="..\KFDtool.Shared\KFDtool.Shared.csproj" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="NLog" Version="4.7.3" />
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Control/P25EraseAllKeys.xaml.cs" />
+    <Compile Remove="Control/P25KeyErase.xaml.cs" />
+    <Compile Remove="Control/P25Keyload.xaml.cs" />
+    <Compile Remove="Control/P25MrEmulator.xaml.cs" />
+    <Compile Remove="Control/P25MultipleKeyload.xaml.cs" />
+    <Compile Remove="Control/P25ViewKeyInfo.xaml.cs" />
+    <Compile Remove="Control/P25ViewKeysetInfo.xaml.cs" />
+    <Compile Remove="Control/P25ViewKmfConfig.xaml.cs" />
+    <Compile Remove="Control/P25ViewRsiConfig.xaml.cs" />
+    <Compile Remove="Control/UtilAdapterSelfTest.xaml.cs" />
+    <Compile Remove="Control/UtilFixDesKeyParity.xaml.cs" />
+    <Compile Remove="Control/UtilInitAdapter.xaml.cs" />
+    <Compile Remove="Control/UtilUpdateAdapterFw.xaml.cs" />
+    <Compile Remove="Dialog/ContainerEdit.xaml.cs" />
+    <Compile Remove="Dialog/ContainerEditGroupControl.xaml.cs" />
+    <Compile Remove="Dialog/ContainerEditKeyControl.xaml.cs" />
+    <Compile Remove="Dialog/ContainerEnterPassword.xaml.cs" />
+    <Compile Remove="Dialog/ContainerSetPassword.xaml.cs" />
+    <Compile Remove="Dialog/DliIpDeviceEdit.xaml.cs" />
+    <Compile Remove="Properties/AssemblyInfo.cs" />
+    <Compile Remove="Properties/Resources.Designer.cs" />
+    <Compile Remove="Properties/Settings.Designer.cs" />
+    <EmbeddedResource Remove="Properties/Resources.resx" />
+    <Page Remove="Control/P25EraseAllKeys.xaml" />
+    <Page Remove="Control/P25KeyErase.xaml" />
+    <Page Remove="Control/P25Keyload.xaml" />
+    <Page Remove="Control/P25MrEmulator.xaml" />
+    <Page Remove="Control/P25MultipleKeyload.xaml" />
+    <Page Remove="Control/P25ViewKeyInfo.xaml" />
+    <Page Remove="Control/P25ViewKeysetInfo.xaml" />
+    <Page Remove="Control/P25ViewKmfConfig.xaml" />
+    <Page Remove="Control/P25ViewRsiConfig.xaml" />
+    <Page Remove="Control/UtilAdapterSelfTest.xaml" />
+    <Page Remove="Control/UtilFixDesKeyParity.xaml" />
+    <Page Remove="Control/UtilInitAdapter.xaml" />
+    <Page Remove="Control/UtilUpdateAdapterFw.xaml" />
+    <Page Remove="Dialog/ContainerEdit.xaml" />
+    <Page Remove="Dialog/ContainerEditGroupControl.xaml" />
+    <Page Remove="Dialog/ContainerEditKeyControl.xaml" />
+    <Page Remove="Dialog/ContainerEnterPassword.xaml" />
+    <Page Remove="Dialog/ContainerSetPassword.xaml" />
+    <Page Remove="Dialog/DliIpDeviceEdit.xaml" />
+  </ItemGroup>
 </Project>

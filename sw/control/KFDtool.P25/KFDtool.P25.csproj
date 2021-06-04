@@ -1,54 +1,21 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{824ACA5B-01DB-42B7-892F-E4CEC6FF3887}</ProjectGuid>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>KFDtool.P25</RootNamespace>
-    <AssemblyName>KFDtool.P25</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <DebugType>pdbonly</DebugType>
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
-      <HintPath>..\packages\NLog.4.7.3\lib\net45\NLog.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
     <Reference Include="System.Configuration" />
-    <Reference Include="System.Core" />
     <Reference Include="System.IO.Compression" />
-    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Transactions" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constant\AlgorithmId.cs" />
@@ -112,17 +79,75 @@
     <Compile Include="TransferConstructs\InteractTwiKfdtool.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\KFDtool.Adapter\KFDtool.Adapter.csproj">
-      <Project>{A13F6741-6C04-4C9F-AFFC-A0B7E0D25762}</Project>
-      <Name>KFDtool.Adapter</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\KFDtool.Shared\KFDtool.Shared.csproj">
-      <Project>{D6E45B54-C02B-4B24-BA1D-D06838071A81}</Project>
-      <Name>KFDtool.Shared</Name>
-    </ProjectReference>
+    <ProjectReference Include="..\KFDtool.Adapter\KFDtool.Adapter.csproj" />
+    <ProjectReference Include="..\KFDtool.Shared\KFDtool.Shared.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <PackageReference Include="NLog" Version="4.7.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Constant/AlgorithmId.cs" />
+    <Compile Remove="DataLinkIndependent/DataLinkIndependentProtocol.cs" />
+    <Compile Remove="DeviceProtocol/IDeviceProtocol.cs" />
+    <Compile Remove="Generator/KeyGenerator.cs" />
+    <Compile Remove="Kmm/ChangeoverCommand.cs" />
+    <Compile Remove="Kmm/ChangeoverItem.cs" />
+    <Compile Remove="Kmm/ChangeoverResponse.cs" />
+    <Compile Remove="Kmm/ChangeRsiCommand.cs" />
+    <Compile Remove="Kmm/ChangeRsiResponse.cs" />
+    <Compile Remove="Kmm/InventoryCommandListActiveKeys.cs" />
+    <Compile Remove="Kmm/InventoryCommandListActiveKsetIds.cs" />
+    <Compile Remove="Kmm/InventoryCommandListKeysetTaggingInfo.cs" />
+    <Compile Remove="Kmm/InventoryCommandListKmfRsi.cs" />
+    <Compile Remove="Kmm/InventoryCommandListMnp.cs" />
+    <Compile Remove="Kmm/InventoryCommandListRsiItems.cs" />
+    <Compile Remove="Kmm/InventoryResponseListActiveKeys.cs" />
+    <Compile Remove="Kmm/InventoryResponseListActiveKsetIds.cs" />
+    <Compile Remove="Kmm/InventoryResponseListKeysetTaggingInfo.cs" />
+    <Compile Remove="Kmm/InventoryResponseListKmfRsi.cs" />
+    <Compile Remove="Kmm/InventoryResponseListMnp.cs" />
+    <Compile Remove="Kmm/InventoryResponseListRsiItems.cs" />
+    <Compile Remove="Kmm/InventoryType.cs" />
+    <Compile Remove="Kmm/KeyInfo.cs" />
+    <Compile Remove="Kmm/KeyItem.cs" />
+    <Compile Remove="Kmm/KeysetItem.cs" />
+    <Compile Remove="Kmm/KeyStatus.cs" />
+    <Compile Remove="Kmm/KmmBody.cs" />
+    <Compile Remove="Kmm/KmmFrame.cs" />
+    <Compile Remove="Kmm/LoadConfigCommand.cs" />
+    <Compile Remove="Kmm/LoadConfigResponse.cs" />
+    <Compile Remove="Kmm/MessageId.cs" />
+    <Compile Remove="Kmm/Mfid90SessionControlVer1.cs" />
+    <Compile Remove="Kmm/ModifyKeyCommand.cs" />
+    <Compile Remove="Kmm/NegativeAcknowledgment.cs" />
+    <Compile Remove="Kmm/OperationStatus.cs" />
+    <Compile Remove="Kmm/RekeyAcknowledgment.cs" />
+    <Compile Remove="Kmm/ResponseKind.cs" />
+    <Compile Remove="Kmm/RsiItem.cs" />
+    <Compile Remove="Kmm/SessionControl.cs" />
+    <Compile Remove="Kmm/ZeroizeCommand.cs" />
+    <Compile Remove="Kmm/ZeroizeResponse.cs" />
+    <Compile Remove="ManualRekey/ManualRekeyApplication.cs" />
+    <Compile Remove="NetworkProtocol/UdpProtocol.cs" />
+    <Compile Remove="Partition/KeyPartitioner.cs" />
+    <Compile Remove="Properties/AssemblyInfo.cs" />
+    <Compile Remove="ThreeWire/CRC16.cs" />
+    <Compile Remove="ThreeWire/ThreeWireProtocol.cs" />
+    <Compile Remove="TransferConstructs/BaseDevice.cs" />
+    <Compile Remove="TransferConstructs/CmdKeyItem.cs" />
+    <Compile Remove="TransferConstructs/DliIpDevice.cs" />
+    <Compile Remove="TransferConstructs/Interact.cs" />
+    <Compile Remove="TransferConstructs/InteractDliIp.cs" />
+    <Compile Remove="TransferConstructs/InteractTwiKfdtool.cs" />
+    <Compile Remove="TransferConstructs/RspChangeoverInfo.cs" />
+    <Compile Remove="TransferConstructs/RspKeyInfo.cs" />
+    <Compile Remove="TransferConstructs/RspKeysetInfo.cs" />
+    <Compile Remove="TransferConstructs/RspRsiInfo.cs" />
+    <Compile Remove="TransferConstructs/TwiKfdtoolDevice.cs" />
+    <Compile Remove="Validator/FieldValidator.cs" />
+  </ItemGroup>
 </Project>
