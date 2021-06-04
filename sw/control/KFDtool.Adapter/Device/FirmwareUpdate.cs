@@ -1,12 +1,7 @@
 ﻿using KFDtool.BSL430;
 using KFDtool.Adapter.Bundle;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace KFDtool.Adapter.Device
 {

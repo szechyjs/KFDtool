@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace KFDtool.BSL430
+﻿namespace KFDtool.BSL430
 {
     /*
     *   This class contains a portion binary code to be written to
